@@ -377,7 +377,7 @@ body::before {
 }
 
 /* ── SECTION COMMON ─────────────────────── */
-section {
+section:not(.hero) {
     padding: 120px 80px;
     max-width: 1440px;
     margin: 0 auto;
