@@ -15,6 +15,22 @@
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+
+        const icon = navToggle.querySelector('i');
+
+        if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
 
     /* ============================================================
        1. STATE TRUNG TÂM

@@ -1212,6 +1212,92 @@ footer {
     transition-delay: .3s;
 }
 
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .nav {
+        padding: 0 16px;
+        height: 72px;
+    }
+
+    .nav-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    .nav-search {
+        display: none;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 72px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 72px);
+
+        background: rgba(9, 9, 11, 0.98);
+        backdrop-filter: blur(20px);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        gap: 10px;
+        padding: 24px;
+
+        transition: 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        list-style: none;
+    }
+
+    .nav-links a {
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        padding: 14px 18px;
+
+        border-radius: 12px;
+        font-size: 1rem;
+
+        background: rgba(255, 255, 255, .04);
+    }
+
+    .nav-links a:hover {
+        background: rgba(99, 102, 241, .15);
+    }
+
+    .page-hero {
+        padding-top: 72px;
+    }
+
+    .hero {
+        padding-top: 72px;
+    }
+}
+
 /* ── RESPONSIVE ──────────────────────────── */
 @media (max-width: 1024px) {
 
@@ -1228,7 +1314,6 @@ footer {
 
 @media (max-width: 768px) {
 
-    .nav-links,
     .nav-search {
         display: none;
     }

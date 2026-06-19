@@ -23,15 +23,16 @@
   <nav class="nav">
     <a class="nav-brand" href="index.html" style="font-family: Syne;">TechVerse</a>
 
+    <button class="nav-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
     <ul class="nav-links">
       <li><a href="index.html" class="active"><i class="fa-solid fa-house"
             style="font-size:.78rem;margin-right:5px"></i>Trang chủ</a></li>
       <li><a href="sanpham.html"><i class="fa-solid fa-box" style="font-size:.78rem;margin-right:5px"></i>Sản phẩm</a>
       </li>
-      <li><a href="about.html"><i class="fa-solid fa-circle-info" style="font-size:.78rem;margin-right:5px"></i>Giới
-          thiệu</a></li>
-      <li><a href="contact.html"><i class="fa-solid fa-envelope" style="font-size:.78rem;margin-right:5px"></i>Liên
-          hệ</a></li>
+
     </ul>
 
     <div class="nav-search">
@@ -59,7 +60,7 @@
       </p>
 
       <div class="hero-actions">
-        <a href="products.html" class="btn-primary">
+        <a href="sanpham.html" class="btn-primary">
           Khám phá ngay <i class="fa-solid fa-arrow-right"></i>
         </a>
         <a href="about.html" class="btn-ghost">
@@ -339,10 +340,10 @@
           <div class="rev-stars">⭐⭐⭐⭐⭐</div>
           <p>"Loa JBL Charge 6 âm thanh cực hay, pin trâu dùng suốt ngày. Giao hàng nhanh, đóng gói cẩn thận."</p>
           <div class="rev-author">
-            <div class="rev-avatar">N</div>
+            <div class="rev-avatar">P</div>
             <div>
-              <div class="rev-name">Nguyễn Minh</div>
-              <div class="rev-role">Khách hàng · TP.HCM</div>
+              <div class="rev-name">Nguyễn Duy Phước</div>
+              <div class="rev-role">Khách hàng · Trà Vinh</div>
             </div>
           </div>
         </div>
@@ -351,22 +352,22 @@
           <div class="rev-stars">⭐⭐⭐⭐⭐</div>
           <p>"Laptop Lenovo Legion chạy mượt mà, đáp ứng hoàn toàn nhu cầu gaming và làm việc chuyên nghiệp."</p>
           <div class="rev-author">
-            <div class="rev-avatar">T</div>
+            <div class="rev-avatar">Q</div>
             <div>
-              <div class="rev-name">Trần Hải</div>
-              <div class="rev-role">Khách hàng · Hà Nội</div>
+              <div class="rev-name">Cao Thiên Quí</div>
+              <div class="rev-role">Khách hàng · Bến Tre</div>
             </div>
           </div>
         </div>
 
         <div class="rev-card" data-reveal data-reveal-delay="3">
           <div class="rev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Website đẹp và dễ tìm sản phẩm. Đội hỗ trợ phản hồi rất nhanh, tư vấn tận tình."</p>
+          <p>"Website đẹp và dễ tìm sản phẩm. Đội hỗ trợ phản hồi rất nhanh, tư vấn tận tình, sản phẩm đa dạng."</p>
           <div class="rev-author">
-            <div class="rev-avatar">L</div>
+            <div class="rev-avatar">T</div>
             <div>
-              <div class="rev-name">Lê Phương</div>
-              <div class="rev-role">Khách hàng · Đà Nẵng</div>
+              <div class="rev-name">Nguyễn Minh Toàn</div>
+              <div class="rev-role">Khách hàng · Trà Vinh</div>
             </div>
           </div>
         </div>
@@ -433,29 +434,7 @@
     </div>
   </footer>
 
-  <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('[data-reveal]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    reveals.forEach(el => observer.observe(el));
-
-    // Heart toggle
-    document.querySelectorAll('.prod-heart').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const icon = btn.querySelector('i');
-        icon.classList.toggle('fa-regular');
-        icon.classList.toggle('fa-solid');
-      });
-    });
-  </script>
+  <script src="/js/trangchu.js"></script>
 
 </body>
 
