@@ -78,8 +78,8 @@ body::before {
     background: rgba(9, 9, 11, .75);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
-    transition: background .3s var(--ease);
 }
+
 
 .nav-brand {
     font-family: var(--font-display);
