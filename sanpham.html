@@ -14,13 +14,20 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+    <!-- Bootstrap 5 (chỉ dùng cho Modal + lưới phụ trợ, không override theme) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+
+    <!-- Theme gốc (KHÔNG thay đổi) -->
     <link rel="stylesheet" href="../css/sanpham.css">
+    <!-- Bổ sung: filter động, modal chi tiết, empty state, v.v. -->
+    <link rel="stylesheet" href="../css/sanpham-extra.css">
 </head>
 
 
 <body>
 
-    <!-- ── NAVBAR ── -->
+    <!-- ── NAVBAR (giữ nguyên cấu trúc gốc — không thay đổi) ── -->
     <nav class="nav">
         <a class="nav-brand" href="index.html" style="font-family: Syne;">TechVerse</a>
 
@@ -50,12 +57,12 @@
                 <span>Sản phẩm</span>
             </div>
             <h1>Kho thiết bị <em>đỉnh cao</em></h1>
-            <p>Hơn 500 sản phẩm từ 120+ thương hiệu hàng đầu — tất cả được tuyển chọn kỹ càng dành cho bạn.</p>
+            <p>Hơn 35 sản phẩm từ các thương hiệu hàng đầu — tất cả được tuyển chọn kỹ càng dành cho bạn.</p>
             <div class="hero-meta">
                 <div class="meta-badge"><i class="fa-solid fa-circle-check"></i> Hàng chính hãng</div>
                 <div class="meta-badge"><i class="fa-solid fa-truck"></i> Giao hàng nhanh</div>
                 <div class="meta-badge"><i class="fa-solid fa-shield-halved"></i> Bảo hành 12 tháng</div>
-                <div class="meta-count">Hiển thị <span>20</span> / <span>96</span> sản phẩm</div>
+                <div class="meta-count">Hiển thị <span>12</span> / <span>35</span> sản phẩm</div>
             </div>
         </div>
     </div>
@@ -63,8 +70,22 @@
     <!-- ── SHOP LAYOUT ── -->
     <div class="shop-layout">
 
+        <!-- Nút mở bộ lọc trên mobile -->
+        <button class="mobile-filter-toggle">
+            <i class="fa-solid fa-filter"></i> Bộ lọc &amp; Tìm kiếm
+        </button>
+
         <!-- SIDEBAR -->
         <aside class="sidebar">
+
+            <!-- Search trong sidebar (đồng bộ với navbar search) -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Tìm kiếm</div>
+                <div class="filter-search-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" id="sidebar-search-input" placeholder="Tên sản phẩm, thương hiệu..." />
+                </div>
+            </div>
 
             <!-- Category -->
             <div class="sidebar-section">
@@ -72,28 +93,29 @@
                 <ul class="filter-list" id="cat-filter">
                     <li class="filter-item active" data-cat="all">
                         <span><i class="fa-solid fa-border-all" style="width:14px;margin-right:8px"></i>Tất cả</span>
-                        <span class="filter-count">96</span>
+                        <span class="filter-count">0</span>
                     </li>
                     <li class="filter-item" data-cat="laptop">
                         <span><i class="fa-solid fa-laptop" style="width:14px;margin-right:8px"></i>Laptop</span>
-                        <span class="filter-count">24</span>
+                        <span class="filter-count">0</span>
                     </li>
                     <li class="filter-item" data-cat="phone">
                         <span><i class="fa-solid fa-mobile-screen" style="width:14px;margin-right:8px"></i>Điện
                             thoại</span>
-                        <span class="filter-count">31</span>
+                        <span class="filter-count">0</span>
                     </li>
                     <li class="filter-item" data-cat="audio">
                         <span><i class="fa-solid fa-headphones" style="width:14px;margin-right:8px"></i>Âm thanh</span>
-                        <span class="filter-count">18</span>
+                        <span class="filter-count">0</span>
                     </li>
                     <li class="filter-item" data-cat="watch">
-                        <span><i class="fa-solid fa-clock" style="width:14px;margin-right:8px"></i>Smartwatch</span>
-                        <span class="filter-count">12</span>
+                        <span><i class="fa-solid fa-clock" style="width:14px;margin-right:8px"></i>Đồng hồ thông
+                            minh</span>
+                        <span class="filter-count">0</span>
                     </li>
                     <li class="filter-item" data-cat="accessory">
                         <span><i class="fa-solid fa-plug" style="width:14px;margin-right:8px"></i>Phụ kiện</span>
-                        <span class="filter-count">11</span>
+                        <span class="filter-count">0</span>
                     </li>
                 </ul>
             </div>
@@ -102,66 +124,29 @@
             <div class="sidebar-section">
                 <div class="sidebar-title">Khoảng giá</div>
                 <div class="price-range-wrap">
-                    <div class="price-labels">
-                        <span>0đ</span>
-                        <span id="price-display">50.000.000đ</span>
+                    <div class="price-input-row">
+                        <input type="number" id="price-min-input" placeholder="Tối thiểu" min="0" step="100000" />
+                        <span>—</span>
+                        <input type="number" id="price-max-input" placeholder="Tối đa" min="0" step="100000" />
                     </div>
-                    <input type="range" min="0" max="100" value="70" id="price-range" />
+                    <button class="price-apply-btn" id="price-apply-btn">
+                        <i class="fa-solid fa-filter" style="margin-right:6px"></i>Lọc giá
+                    </button>
+                    <div class="price-quick-tags">
+                        <span class="price-quick-tag" data-min="0" data-max="5000000">Dưới 5tr</span>
+                        <span class="price-quick-tag" data-min="5000000" data-max="15000000">5 - 15tr</span>
+                        <span class="price-quick-tag" data-min="15000000" data-max="30000000">15 - 30tr</span>
+                        <span class="price-quick-tag" data-min="30000000" data-max="120000000">Trên 30tr</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Brand -->
+            <!-- Brand (sinh động từ products-data.js) -->
             <div class="sidebar-section">
                 <div class="sidebar-title">Thương hiệu</div>
-                <div class="brand-list">
-                    <label class="brand-check">
-                        <input type="checkbox" checked />
-                        <div class="checkmark"></div>
-                        <span class="brand-label">Apple</span>
-                    </label>
-                    <label class="brand-check">
-                        <input type="checkbox" checked />
-                        <div class="checkmark"></div>
-                        <span class="brand-label">Samsung</span>
-                    </label>
-                    <label class="brand-check">
-                        <input type="checkbox" />
-                        <div class="checkmark"></div>
-                        <span class="brand-label">Sony</span>
-                    </label>
-                    <label class="brand-check">
-                        <input type="checkbox" />
-                        <div class="checkmark"></div>
-                        <span class="brand-label">Lenovo</span>
-                    </label>
-                    <label class="brand-check">
-                        <input type="checkbox" />
-                        <div class="checkmark"></div>
-                        <span class="brand-label">JBL</span>
-                    </label>
-                    <label class="brand-check">
-                        <input type="checkbox" />
-                        <div class="checkmark"></div>
-                        <span class="brand-label">Xiaomi</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Rating -->
-            <div class="sidebar-section">
-                <div class="sidebar-title">Đánh giá</div>
-                <div class="rating-list">
-                    <div class="rating-row">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-label">5 sao</span>
-                    </div>
-                    <div class="rating-row">
-                        <span class="stars">★★★★<span style="color:var(--muted)">★</span></span>
-                        <span class="rating-label">4 sao trở lên</span>
-                    </div>
-                    <div class="rating-row">
-                        <span class="stars">★★★<span style="color:var(--muted)">★★</span></span>
-                        <span class="rating-label">3 sao trở lên</span>
+                <div class="brand-list-wrap">
+                    <div class="brand-list">
+                        <!-- JS sẽ bơm danh sách checkbox thương hiệu vào đây -->
                     </div>
                 </div>
             </div>
@@ -178,16 +163,11 @@
             <!-- Topbar -->
             <div class="topbar">
                 <div class="topbar-left">
-                    <span class="active-filter-tag">Apple <i class="fa-solid fa-xmark"></i></span>
-                    <span class="active-filter-tag">Samsung <i class="fa-solid fa-xmark"></i></span>
+                    <!-- JS bơm các filter tag đang áp dụng vào đây -->
                 </div>
                 <div class="topbar-right">
                     <select class="sort-select">
                         <option>Nổi bật nhất</option>
-                        <option>Giá: Thấp → Cao</option>
-                        <option>Giá: Cao → Thấp</option>
-                        <option>Mới nhất</option>
-                        <option>Đánh giá cao</option>
                     </select>
                     <div class="view-toggle">
                         <button class="view-btn active" title="Lưới"><i class="fa-solid fa-grip"></i></button>
@@ -196,480 +176,10 @@
                 </div>
             </div>
 
-            <!-- Product Grid (4 per row on desktop) -->
+            <!-- Product Grid (render bằng JS từ products-data.js) -->
             <div class="prod-grid" id="product-grid">
-
-                <!-- Card 1 -->
-                <div class="prod-card" data-reveal data-reveal-delay="1">
-                    <div class="prod-badge badge-new">Mới</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#16213e);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            📱</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Điện thoại</div>
-                        <h5>iPhone 17 Pro Max</h5>
-                        <p>Chip A19 Bionic, camera 200MP, màn hình ProMotion 120Hz.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(128 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">34.990.000đ</span>
-                                <span class="price-old">38.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="prod-card" data-reveal data-reveal-delay="2">
-                    <div class="prod-badge badge-sale">-15%</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#0f2027,#203a43);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            💻</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Laptop</div>
-                        <h5>MacBook Pro 16" M4</h5>
-                        <p>Chip M4 Pro, 36GB RAM, màn hình Liquid Retina XDR.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(94 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">67.990.000đ</span>
-                                <span class="price-old">79.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="prod-card" data-reveal data-reveal-delay="3">
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#1a0533,#2d1b69);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            🎧</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Âm thanh</div>
-                        <h5>Sony WH-1000XM6</h5>
-                        <p>Chống ồn chủ động hàng đầu, pin 40 giờ, aptX Lossless.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(207 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">8.490.000đ</span>
-                                <span class="price-old">9.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="prod-card" data-reveal data-reveal-delay="4">
-                    <div class="prod-badge badge-hot">Hot</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#0d1117,#1a1f2e);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            ⌚</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Smartwatch</div>
-                        <h5>Apple Watch Ultra 3</h5>
-                        <p>Titan aerospace, GPS chính xác cao, pin 72 giờ.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★<span style="color:var(--muted)">★</span></span>
-                            <span>(56 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">22.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="prod-card" data-reveal data-reveal-delay="1">
-                    <div class="prod-badge badge-new">Mới</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#0a192f,#112240);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            📱</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Điện thoại</div>
-                        <h5>Samsung Galaxy S26 Ultra</h5>
-                        <p>Snapdragon 8 Elite, camera 200MP, S Pen tích hợp AI.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(183 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">31.990.000đ</span>
-                                <span class="price-old">35.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="prod-card" data-reveal data-reveal-delay="2">
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#1f0036,#3d0063);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            🎮</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Laptop</div>
-                        <h5>Lenovo Legion Pro 9i</h5>
-                        <p>Intel Core Ultra 9, RTX 5090, màn hình Mini LED 240Hz.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(72 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">89.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 7 -->
-                <div class="prod-card" data-reveal data-reveal-delay="3">
-                    <div class="prod-badge badge-sale">-20%</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#1a1200,#2d2000);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            🔊</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Âm thanh</div>
-                        <h5>JBL Charge 6</h5>
-                        <p>Chống nước IP67, pin 20 giờ, âm thanh stereo 360°.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★<span style="color:var(--muted)">★</span></span>
-                            <span>(312 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">3.190.000đ</span>
-                                <span class="price-old">3.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 8 -->
-                <div class="prod-card" data-reveal data-reveal-delay="4">
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#001a0d,#002d1a);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            ⌚</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Smartwatch</div>
-                        <h5>Samsung Galaxy Watch 8 Pro</h5>
-                        <p>Theo dõi sức khỏe AI, màn hình sapphire, pin 4 ngày.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(89 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">12.990.000đ</span>
-                                <span class="price-old">14.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 9 -->
-                <div class="prod-card" data-reveal data-reveal-delay="1">
-                    <div class="prod-badge badge-new">Mới</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#141414,#242424);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            💻</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Laptop</div>
-                        <h5>MacBook Air 15" M4</h5>
-                        <p>Mỏng nhẹ nhất dòng Mac, pin 22 giờ, chip M4 tiết kiệm điện.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(261 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">39.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 10 -->
-                <div class="prod-card" data-reveal data-reveal-delay="2">
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#001535,#002a6e);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            🎧</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Âm thanh</div>
-                        <h5>AirPods Pro 3</h5>
-                        <p>Chống ồn H2, âm thanh không gian cá nhân hóa, pin 36 giờ.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(445 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">7.290.000đ</span>
-                                <span class="price-old">7.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 11 -->
-                <div class="prod-card" data-reveal data-reveal-delay="3">
-                    <div class="prod-badge badge-hot">Hot</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#1a0010,#3d0025);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            📱</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Điện thoại</div>
-                        <h5>Xiaomi 16 Ultra</h5>
-                        <p>Leica camera 1" sensor, Snapdragon 8 Gen 4, sạc 120W.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★<span style="color:var(--muted)">★</span></span>
-                            <span>(139 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">19.990.000đ</span>
-                                <span class="price-old">22.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 12 -->
-                <div class="prod-card" data-reveal data-reveal-delay="4">
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#002020,#004040);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            🔌</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Phụ kiện</div>
-                        <h5>Anker 747 Charging Station</h5>
-                        <p>Sạc nhanh 140W, 4 cổng USB-C + 3 USB-A, GaN III.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(203 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">1.990.000đ</span>
-                                <span class="price-old">2.490.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 13 -->
-                <div class="prod-card" data-reveal data-reveal-delay="1">
-                    <div class="prod-badge badge-sale">-10%</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#0d0d0d,#1a1a2e);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            💻</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Laptop</div>
-                        <h5>ASUS ROG Zephyrus G16</h5>
-                        <p>AMD Ryzen AI 9, RTX 4080, màn hình OLED 240Hz.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(67 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">62.990.000đ</span>
-                                <span class="price-old">69.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 14 -->
-                <div class="prod-card" data-reveal data-reveal-delay="2">
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#1a1500,#332900);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            🔊</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Âm thanh</div>
-                        <h5>Sonos Era 300</h5>
-                        <p>Dolby Atmos, 6 driver, âm thanh không gian vượt trội.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(98 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">11.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 15 -->
-                <div class="prod-card" data-reveal data-reveal-delay="3">
-                    <div class="prod-badge badge-new">Mới</div>
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#001a35,#003370);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            📱</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Điện thoại</div>
-                        <h5>Google Pixel 10 Pro</h5>
-                        <p>Tensor G5, camera AI thế hệ mới, màn hình LTPO 120Hz.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★<span style="color:var(--muted)">★</span></span>
-                            <span>(77 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">24.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 16 -->
-                <div class="prod-card" data-reveal data-reveal-delay="4">
-                    <div class="prod-img-wrap">
-                        <div
-                            style="width:100%;height:100%;background:linear-gradient(135deg,#0a001a,#1a0036);display:flex;align-items:center;justify-content:center;font-size:3.5rem;">
-                            ⌚</div>
-                        <div class="prod-actions">
-                            <button class="qa-btn"><i class="fa-solid fa-eye"></i> Xem nhanh</button>
-                            <button class="qa-btn icon-only"><i class="fa-solid fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="prod-body">
-                        <div class="prod-cat">Smartwatch</div>
-                        <h5>Garmin Fenix 8 Sapphire</h5>
-                        <p>GPS đa băng tần, theo dõi sức khỏe chuyên sâu, pin 29 ngày.</p>
-                        <div class="prod-rating">
-                            <span class="stars">★★★★★</span>
-                            <span>(154 đánh giá)</span>
-                        </div>
-                        <div class="prod-footer">
-                            <div class="prod-price">
-                                <span class="price-main">29.990.000đ</span>
-                                <span class="price-old">32.990.000đ</span>
-                            </div>
-                            <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /prod-grid -->
+                <!-- JS render toàn bộ card sản phẩm vào đây -->
+            </div>
 
             <!-- Load More -->
             <div class="load-more-wrap">
@@ -677,7 +187,7 @@
                     <i class="fa-solid fa-arrow-down"></i> Xem thêm sản phẩm
                 </button>
                 <div class="progress-bar">
-                    <div class="progress-label">Đang hiển thị 16 / 96 sản phẩm</div>
+                    <div class="progress-label">Đang hiển thị 0 / 0 sản phẩm</div>
                     <div class="progress-track">
                         <div class="progress-fill"></div>
                     </div>
@@ -687,7 +197,7 @@
         </main>
     </div><!-- /shop-layout -->
 
-    <!-- ── FOOTER ── -->
+    <!-- ── FOOTER (giữ nguyên) ── -->
     <footer>
         <div class="footer-inner">
             <div class="footer-grid">
@@ -702,7 +212,7 @@
                         <li><a href="#">Laptop</a></li>
                         <li><a href="#">Điện thoại</a></li>
                         <li><a href="#">Âm thanh</a></li>
-                        <li><a href="#">Smartwatch</a></li>
+                        <li><a href="#">Đồng hồ thông minh</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -728,6 +238,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Bootstrap JS (cần cho Modal chi tiết sản phẩm) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Dữ liệu sản phẩm phải load TRƯỚC engine -->
+    <script src="js/products-data.js"></script>
     <script src="js/sanpham.js"></script>
 </body>
 
