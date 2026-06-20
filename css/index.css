@@ -1,0 +1,238 @@
+/* ============================================================
+   INDEX.CSS — CSS bổ sung riêng cho trang chủ.
+   Chỉ chứa những gì Bootstrap utility không đáp ứng được:
+   hero ambient, badge pulse, stats-grid chia ô bằng border.
+   ============================================================ */
+
+/* ── HERO ── */
+.tv-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-top: 88px;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(99, 102, 241, .14), transparent 70%),
+    var(--tv-ink);
+}
+
+.tv-orb-1 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(99, 102, 241, .18) 0%, transparent 70%);
+  top: -150px;
+  right: -180px;
+}
+
+.tv-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(167, 139, 250, .12) 0%, transparent 70%);
+  bottom: -100px;
+  left: -120px;
+}
+
+.hero-badge {
+  background: rgba(99, 102, 241, .12);
+  border: 1px solid rgba(99, 102, 241, .25);
+  color: var(--tv-accent2);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .4rem .9rem;
+  border-radius: 99px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--tv-accent);
+  border-radius: 50%;
+  display: inline-block;
+  animation: tv-pulse 2s infinite;
+}
+
+@keyframes tv-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .4; transform: scale(.7); }
+}
+
+.hero-title {
+  font-family: var(--tv-font-display);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  color: #fff;
+}
+
+.hero-desc {
+  color: rgba(255, 255, 255, .75);
+  font-size: 1.1rem;
+  max-width: 540px;
+  line-height: 1.75;
+}
+
+.hero-stats {
+  max-width: 560px;
+  border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.hstat-num {
+  font-family: var(--tv-font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.hstat-label {
+  font-size: .8rem;
+  color: rgba(255, 255, 255, .6);
+}
+
+/* ── CATEGORY ICON ── */
+.cat-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(99, 102, 241, .12);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--tv-accent2);
+  transition: background .25s, transform .25s;
+}
+
+.cat-card:hover .cat-icon {
+  background: rgba(99, 102, 241, .22);
+  transform: scale(1.1);
+}
+
+/* ── FEATURE BOX ── */
+.feat-num {
+  font-family: var(--tv-font-display);
+  font-size: .75rem;
+  font-weight: 700;
+  color: rgba(99, 102, 241, .45);
+  letter-spacing: .1em;
+}
+
+.feat-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(99, 102, 241, .1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--tv-accent2);
+}
+
+/* ── TRENDING ── */
+.trend-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.trend-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tv-accent), var(--tv-accent2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s var(--tv-ease);
+}
+
+.trend-card:hover::after { transform: scaleX(1); }
+
+.trend-icon {
+  font-size: 2.4rem;
+  color: var(--tv-accent2);
+  display: inline-block;
+  filter: drop-shadow(0 0 16px rgba(167, 139, 250, .4));
+}
+
+/* ── STATS ── */
+.stats-section {
+  background: linear-gradient(135deg, #0F0F1A, #131326, #0F0F1A);
+}
+
+.stats-grid {
+  max-width: 960px;
+  background: var(--tv-border);
+  border: 1px solid var(--tv-border);
+  border-radius: var(--tv-r-lg);
+  overflow: hidden;
+  gap: 1px;
+}
+
+.stat-item {
+  background: rgba(17, 17, 22, .95);
+}
+
+.stat-num {
+  font-family: var(--tv-font-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* ── TESTIMONIAL AVATAR ── */
+.rev-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--tv-accent), var(--tv-accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--tv-font-display);
+  font-weight: 800;
+  font-size: .9rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* ── NEWSLETTER CARD ── */
+.newsletter-card {
+  max-width: 760px;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-card::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, .12) 0%, transparent 65%);
+  top: -220px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.link-tv {
+  color: var(--tv-accent2);
+}
+.link-tv:hover {
+  color: var(--tv-accent2);
+}
+
+/* ── PRODUCT HEART LIKED STATE ── */
+.prod-heart.liked,
+.prod-heart.liked:hover {
+  color: #F87171 !important;
+  border-color: #F87171 !important;
+  background: rgba(248, 113, 113, .08);
+}
+
+/* ── SPACING UTILS NOT IN BOOTSTRAP DEFAULT SCALE ── */
+@media (min-width: 992px) {
+  .py-lg-6 { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+  .pt-lg-6 { padding-top: 6rem !important; }
+}

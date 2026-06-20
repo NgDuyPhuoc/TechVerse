@@ -1,0 +1,79 @@
+/* ============================================================
+   CHITIET.CSS — CSS bổ sung riêng cho techverse-chitiet.html
+   ============================================================ */
+
+.chitiet-hero {
+  position: relative;
+  min-height: 60vh;
+  overflow: hidden;
+  padding-top: 88px;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 0%, rgba(99, 102, 241, .16), transparent 70%),
+    var(--tv-ink);
+}
+
+.chitiet-hero .tv-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, .18) 0%, transparent 70%);
+  top: -160px;
+  right: -150px;
+}
+
+.chitiet-hero .tv-orb-2 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(167, 139, 250, .12) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+}
+
+.chitiet-title {
+  font-family: var(--tv-font-display);
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: #fff;
+}
+
+.chitiet-desc {
+  color: rgba(255, 255, 255, .75);
+  font-size: 1.08rem;
+  max-width: 600px;
+  line-height: 1.75;
+}
+
+.feat-icon-lg {
+  width: 56px;
+  height: 56px;
+  background: rgba(99, 102, 241, .12);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--tv-accent2);
+}
+
+.cat-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(99, 102, 241, .12);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--tv-accent2);
+  transition: background .25s, transform .25s;
+}
+
+.tv-card-hover:hover .cat-icon {
+  background: rgba(99, 102, 241, .22);
+  transform: scale(1.1);
+}
+
+@media (min-width: 992px) {
+  .py-lg-6 { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+  .pt-lg-6 { padding-top: 6rem !important; }
+}

@@ -5,369 +5,230 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TechVerse — Công nghệ Tương lai</title>
-  <link rel="stylesheet" href="../css/trangchu.css">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Theme tùy biến TechVerse (dark + indigo/violet) -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body>
+<body data-bs-theme="dark">
 
-  <!-- ── NAVBAR ── -->
-  <nav class="nav">
-    <a class="nav-brand" href="index.html" style="font-family: Syne;">TechVerse</a>
+  <!-- ════════ NAVBAR DÙNG CHUNG ════════ -->
+  <nav class="navbar navbar-expand-lg fixed-top tv-navbar" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand tv-gradient-text" href="index.html">TechVerse</a>
 
-    <button class="nav-toggle">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tvNavCollapse"
+        aria-controls="tvNavCollapse" aria-expanded="false" aria-label="Mở menu điều hướng">
+        <i class="bi bi-list" style="font-size:1.6rem;color:#fff;"></i>
+      </button>
 
-    <ul class="nav-links">
-      <li><a href="index.html" class="active"><i class="fa-solid fa-house"
-            style="font-size:.78rem;margin-right:5px"></i>Trang chủ</a></li>
-      <li><a href="sanpham.html"><i class="fa-solid fa-box" style="font-size:.78rem;margin-right:5px"></i>Sản phẩm</a>
-      </li>
-
-    </ul>
-
-    <div class="nav-search">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="search" placeholder="Tìm kiếm sản phẩm..." />
+      <div class="collapse navbar-collapse" id="tvNavCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
+          <li class="nav-item">
+            <a class="nav-link" data-page="index.html" href="index.html">
+              <i class="bi bi-house-door me-1"></i>Trang chủ
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-page="sanpham.html" href="sanpham.html">
+              <i class="bi bi-box-seam me-1"></i>Sản phẩm
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-page="techverse-chitiet.html" href="techverse-chitiet.html">
+              <i class="bi bi-info-circle me-1"></i>Giới thiệu
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lien-he">
+              <i class="bi bi-envelope me-1"></i>Liên hệ
+            </a>
+          </li>
+        </ul>
+        <a href="dangnhap.html" class="btn btn-login text-white" data-page="dangnhap.html">
+          <i class="bi bi-box-arrow-in-right me-1"></i>Đăng nhập
+        </a>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-overlay"></div>
-    </div>
+  <!-- ════════ HERO ════════ -->
+  <header class="tv-hero d-flex align-items-center">
+    <div class="tv-orb tv-orb-1"></div>
+    <div class="tv-orb tv-orb-2"></div>
 
-    <div class="hero-center">
-      <div class="hero-badge">
-        <span></span>
+    <div class="container text-center position-relative" style="z-index:2;">
+      <div class="d-inline-flex align-items-center gap-2 hero-badge mb-4">
+        <span class="pulse-dot"></span>
         Công nghệ · Đổi mới · Tương lai
       </div>
 
-      <h1>Khám phá <em>tương lai</em><br>của công nghệ</h1>
+      <h1 class="hero-title mb-4">
+        Khám phá <span class="tv-gradient-text">tương lai</span><br>của công nghệ
+      </h1>
 
-      <p class="hero-desc">
-        Trí tuệ nhân tạo, phần cứng gaming, smartphone và các thiết bị thế hệ tiếp theo.
+      <p class="hero-desc mx-auto mb-5">
+        Trí tuệ nhân tạo, phần cứng gaming, smartphone và các thiết bị thế hệ tiếp theo —
+        tất cả ở một nơi.
       </p>
 
-      <div class="hero-actions">
-        <a href="sanpham.html" class="btn-primary">
-          Khám phá ngay <i class="fa-solid fa-arrow-right"></i>
+      <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+        <a href="sanpham.html" class="btn btn-tv-primary btn-lg">
+          Khám phá ngay <i class="bi bi-arrow-right ms-1"></i>
         </a>
-        <a href="about.html" class="btn-ghost">
-          Tìm hiểu thêm <i class="fa-solid fa-chevron-right" style="font-size:.75rem"></i>
+        <a href="techverse-chitiet.html" class="btn btn-tv-ghost btn-lg">
+          Tìm hiểu thêm <i class="bi bi-chevron-right ms-1" style="font-size:.8rem"></i>
         </a>
       </div>
 
-      <div class="hero-stats">
-        <div>
+      <div class="row hero-stats justify-content-center mx-auto pt-4">
+        <div class="col-4 col-sm-3">
           <div class="hstat-num">500+</div>
           <div class="hstat-label">Sản phẩm</div>
         </div>
-        <div>
+        <div class="col-4 col-sm-3">
           <div class="hstat-num">50K+</div>
           <div class="hstat-label">Khách hàng</div>
         </div>
-        <div>
+        <div class="col-4 col-sm-3">
           <div class="hstat-num">120+</div>
           <div class="hstat-label">Thương hiệu</div>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- ── CATEGORIES ── -->
-  <div class="categories-section">
-    <section class="inner">
-      <div class="text-center" data-reveal>
-        <div class="section-eyebrow">Danh mục</div>
-        <h2 class="section-title">Tất cả thiết bị bạn cần</h2>
-        <p class="section-lead">Từ laptop đến smartwatch — khám phá từng danh mục sản phẩm chúng tôi cung cấp.</p>
+  <!-- ════════ CATEGORIES ════════ -->
+  <section class="py-5 py-lg-6 bg-tv-surface border-top border-bottom border-tv">
+    <div class="container py-4">
+      <div class="text-center mx-auto mb-5" style="max-width:600px;" data-reveal>
+        <div class="tv-eyebrow mb-2">Danh mục</div>
+        <h2 class="tv-section-title display-6 mb-3">Tất cả thiết bị bạn cần</h2>
+        <p class="text-muted-tv">Từ laptop đến smartwatch — khám phá từng danh mục sản phẩm chúng tôi cung cấp.</p>
       </div>
 
-      <div class="cat-grid">
-        <div class="cat-card" data-reveal data-reveal-delay="1">
-          <div class="cat-icon"><i class="fa-solid fa-laptop"></i></div>
-          <h5>Laptop</h5>
-          <p>Laptop học tập, văn phòng và gaming hiệu suất cao.</p>
-        </div>
-        <div class="cat-card" data-reveal data-reveal-delay="2">
-          <div class="cat-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-          <h5>Điện thoại</h5>
-          <p>Smartphone mới nhất từ Apple, Samsung và các thương hiệu lớn.</p>
-        </div>
-        <div class="cat-card" data-reveal data-reveal-delay="3">
-          <div class="cat-icon"><i class="fa-solid fa-headphones"></i></div>
-          <h5>Âm thanh</h5>
-          <p>Tai nghe, loa Bluetooth và thiết bị audio chuyên nghiệp.</p>
-        </div>
-        <div class="cat-card" data-reveal data-reveal-delay="3">
-          <div class="cat-icon"><i class="fa-solid fa-clock"></i></div>
-          <h5>Smartwatch</h5>
-          <p>Đồng hồ thông minh theo dõi sức khỏe và thể thao.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ── FEATURED PRODUCTS ── -->
-  <section class="products-section">
-    <div class="inner" style="max-width:1280px;margin:0 auto">
-      <div class="text-center" data-reveal>
-        <div class="section-eyebrow">Nổi bật</div>
-        <h2 class="section-title">Sản phẩm được yêu thích nhất</h2>
-        <p class="section-lead">Những thiết bị được lựa chọn kỹ càng dành cho bạn.</p>
-      </div>
-
-      <div class="prod-grid">
-        <div class="prod-card" data-reveal data-reveal-delay="1">
-          <div class="prod-img-wrap">
-            <img src="../images/charge6.jpg" alt="JBL Charge 6" />
-          </div>
-          <div class="prod-body">
-            <span class="prod-tag">Âm thanh</span>
-            <h5>JBL Charge 6</h5>
-            <p>Loa Bluetooth chống nước IP67 với âm thanh mạnh mẽ và pin 20 giờ.</p>
-            <div class="prod-footer">
-              <a href="#" class="prod-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
-              <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-            </div>
+      <div class="row g-3 g-lg-4">
+        <div class="col-6 col-lg-3" data-reveal data-reveal-delay="1">
+          <div class="tv-card tv-card-hover cat-card text-center p-4 p-lg-5 h-100">
+            <div class="cat-icon mx-auto mb-3"><i class="bi bi-laptop"></i></div>
+            <h5 class="mb-2">Laptop</h5>
+            <p class="text-muted-tv small mb-0">Laptop học tập, văn phòng và gaming hiệu suất cao.</p>
           </div>
         </div>
-
-        <div class="prod-card" data-reveal data-reveal-delay="2">
-          <div class="prod-img-wrap">
-            <img src="../images/legion.jpg" alt="Lenovo Legion" />
-          </div>
-          <div class="prod-body">
-            <span class="prod-tag">Gaming</span>
-            <h5>Lenovo Legion</h5>
-            <p>Laptop gaming hiệu năng cao với RTX 4070, màn hình 165Hz.</p>
-            <div class="prod-footer">
-              <a href="#" class="prod-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
-              <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-            </div>
+        <div class="col-6 col-lg-3" data-reveal data-reveal-delay="2">
+          <div class="tv-card tv-card-hover cat-card text-center p-4 p-lg-5 h-100">
+            <div class="cat-icon mx-auto mb-3"><i class="bi bi-phone"></i></div>
+            <h5 class="mb-2">Điện thoại</h5>
+            <p class="text-muted-tv small mb-0">Smartphone mới nhất từ Apple, Samsung và các thương hiệu lớn.</p>
           </div>
         </div>
-
-        <div class="prod-card" data-reveal data-reveal-delay="3">
-          <div class="prod-img-wrap">
-            <img src="../images/iphone17.jpg" alt="iPhone 17" />
+        <div class="col-6 col-lg-3" data-reveal data-reveal-delay="3">
+          <div class="tv-card tv-card-hover cat-card text-center p-4 p-lg-5 h-100">
+            <div class="cat-icon mx-auto mb-3"><i class="bi bi-headphones"></i></div>
+            <h5 class="mb-2">Âm thanh</h5>
+            <p class="text-muted-tv small mb-0">Tai nghe, loa Bluetooth và thiết bị audio chuyên nghiệp.</p>
           </div>
-          <div class="prod-body">
-            <span class="prod-tag">Điện thoại</span>
-            <h5>iPhone 17</h5>
-            <p>Trải nghiệm hệ sinh thái Apple hoàn hảo với chip A19 Bionic.</p>
-            <div class="prod-footer">
-              <a href="#" class="prod-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
-              <button class="prod-heart"><i class="fa-regular fa-heart"></i></button>
-            </div>
+        </div>
+        <div class="col-6 col-lg-3" data-reveal data-reveal-delay="4">
+          <div class="tv-card tv-card-hover cat-card text-center p-4 p-lg-5 h-100">
+            <div class="cat-icon mx-auto mb-3"><i class="bi bi-smartwatch"></i></div>
+            <h5 class="mb-2">Smartwatch</h5>
+            <p class="text-muted-tv small mb-0">Đồng hồ thông minh theo dõi sức khỏe và thể thao.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── WHY US ── -->
-  <div class="whyus-section">
-    <section class="inner">
-      <div class="text-center" data-reveal>
-        <div class="section-eyebrow">Vì sao chọn chúng tôi</div>
-        <h2 class="section-title">Tại sao chọn TechVerse?</h2>
-        <p class="section-lead">Chúng tôi mang đến trải nghiệm công nghệ khác biệt, không chỉ là sản phẩm.</p>
+  <!-- ════════ FEATURED PRODUCTS ════════ -->
+  <section class="py-5 py-lg-6">
+    <div class="container py-4">
+      <div class="text-center mx-auto mb-5" style="max-width:600px;" data-reveal>
+        <div class="tv-eyebrow mb-2">Nổi bật</div>
+        <h2 class="tv-section-title display-6 mb-3">Sản phẩm được yêu thích nhất</h2>
+        <p class="text-muted-tv">Những thiết bị được lựa chọn kỹ càng dành cho bạn.</p>
       </div>
 
-      <div class="feat-grid">
-        <div class="feat-box" data-reveal data-reveal-delay="1">
-          <div class="feat-num">01</div>
-          <div class="feat-icon"><i class="fa-solid fa-microchip"></i></div>
-          <h5>Công nghệ mới nhất</h5>
-          <p>Cập nhật liên tục những xu hướng và thiết bị hiện đại nhất trên thị trường.</p>
-        </div>
-        <div class="feat-box" data-reveal data-reveal-delay="2">
-          <div class="feat-num">02</div>
-          <div class="feat-icon"><i class="fa-solid fa-laptop-code"></i></div>
-          <h5>Thiết bị đa dạng</h5>
-          <p>Smartphone, laptop và phụ kiện thông minh từ hơn 120 thương hiệu lớn.</p>
-        </div>
-        <div class="feat-box" data-reveal data-reveal-delay="3">
-          <div class="feat-num">03</div>
-          <div class="feat-icon"><i class="fa-solid fa-rocket"></i></div>
-          <h5>Xu hướng tương lai</h5>
-          <p>AI, VR/AR và các công nghệ đột phá — luôn đi trước một bước.</p>
-        </div>
-        <div class="feat-box" data-reveal data-reveal-delay="3">
-          <div class="feat-num">04</div>
-          <div class="feat-icon"><i class="fa-solid fa-lightbulb"></i></div>
-          <h5>Dễ tiếp cận</h5>
-          <p>Nội dung trực quan, dễ hiểu — phù hợp cho mọi đối tượng người dùng.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ── TRENDING ── -->
-  <section class="trending-section">
-    <div class="inner" style="max-width:1280px;margin:0 auto">
-      <div class="text-center" data-reveal>
-        <div class="section-eyebrow">Xu hướng</div>
-        <h2 class="section-title">Công nghệ đang dẫn đầu</h2>
-        <p class="section-lead">Ba lĩnh vực đang định hình tương lai của ngành công nghệ toàn cầu.</p>
-      </div>
-
-      <div class="trend-grid">
-        <div class="trend-card" data-reveal data-reveal-delay="1">
-          <i class="fa-solid fa-robot trend-icon"></i>
-          <h4>Trí tuệ nhân tạo</h4>
-          <p>AI đang cách mạng hóa mọi lĩnh vực từ y tế, giáo dục đến sản xuất công nghiệp.</p>
-        </div>
-        <div class="trend-card" data-reveal data-reveal-delay="2">
-          <i class="fa-solid fa-vr-cardboard trend-icon"></i>
-          <h4>VR & AR</h4>
-          <p>Thực tế ảo và tăng cường mở ra không gian trải nghiệm hoàn toàn mới cho người dùng.</p>
-        </div>
-        <div class="trend-card" data-reveal data-reveal-delay="3">
-          <i class="fa-solid fa-microchip trend-icon"></i>
-          <h4>Chip thế hệ mới</h4>
-          <p>Bộ vi xử lý AI tích hợp mang lại hiệu năng vượt trội ngay trên thiết bị cầm tay.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── STATS ── -->
-  <div class="stats-section">
-    <div class="inner">
-      <div class="text-center" data-reveal>
-        <div class="section-eyebrow">Thành tựu</div>
-        <h2 class="section-title">TechVerse bằng con số</h2>
-        <p class="section-lead">Những con số thể hiện quy mô và độ tin cậy của chúng tôi.</p>
-      </div>
-
-      <div class="stats-grid" data-reveal>
-        <div class="stat-item">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Sản phẩm</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">50K+</div>
-          <div class="stat-label">Khách hàng</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">120+</div>
-          <div class="stat-label">Thương hiệu</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">24/7</div>
-          <div class="stat-label">Hỗ trợ</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── NEWS ── -->
-  <div class="news-section">
-    <div class="inner">
-      <div class="text-center" data-reveal>
-        <div class="section-eyebrow">Tin tức</div>
-        <h2 class="section-title">Công nghệ mới nhất</h2>
-        <p class="section-lead">Cập nhật nhanh những xu hướng và sản phẩm đang làm thay đổi thế giới.</p>
-      </div>
-
-      <div class="news-grid">
-        <a href="https://daidoanket.vn/ung-dung-tri-tue-nhan-tao-xu-huong-tat-yeu-trong-giao-duc-viet-nam-10315078.html"
-          class="news-card" data-reveal data-reveal-delay="1">
-          <div class="news-img">
-            <img src="../images/news1.jpg" alt="AI giáo dục" />
-          </div>
-          <div class="news-body">
-            <div class="news-cat">AI · Giáo dục</div>
-            <h5>AI đang thay đổi ngành giáo dục Việt Nam</h5>
-            <p>Những ứng dụng trí tuệ nhân tạo mới nhất đang được triển khai trong học tập.</p>
-            <span class="news-link">Đọc thêm <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-
-        <a href="https://tinhte.vn/thread/top-3-laptop-ai-co-npu-len-den-50-tops-dang-mua-nhat-2026.4094497/"
-          class="news-card" data-reveal data-reveal-delay="2">
-          <div class="news-img">
-            <img src="../images/news2.jpg" alt="Laptop AI" />
-          </div>
-          <div class="news-body">
-            <div class="news-cat">Laptop · AI</div>
-            <h5>Top Laptop AI thế hệ mới đáng mua nhất 2026</h5>
-            <p>NPU tích hợp mang lại hiệu năng vượt trội cho công việc hàng ngày.</p>
-            <span class="news-link">Đọc thêm <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-
-        <a href="https://www.dienmayxanh.com/kinh-nghiem-hay/tu-van-mua-loa-bluetooth-xx-hang-loa-bluetooth-u-1413005"
-          class="news-card" data-reveal data-reveal-delay="3">
-          <div class="news-img">
-            <img src="../images/news3.jpg" alt="Loa Bluetooth" />
-          </div>
-          <div class="news-body">
-            <div class="news-cat">Âm thanh · Review</div>
-            <h5>Loa Bluetooth đa dụng nổi bật nhất hiện nay</h5>
-            <p>Hướng dẫn chọn loa Bluetooth phù hợp nhu cầu và ngân sách của bạn.</p>
-            <span class="news-link">Đọc thêm <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── TESTIMONIALS ── -->
-  <section class="reviews-section">
-    <div class="inner" style="max-width:1280px;margin:0 auto">
-      <div class="text-center" data-reveal>
-        <div class="section-eyebrow">Đánh giá</div>
-        <h2 class="section-title">Khách hàng nói gì?</h2>
-        <p class="section-lead">Hơn 50.000 khách hàng đã tin tưởng TechVerse.</p>
-      </div>
-
-      <div class="rev-grid">
-        <div class="rev-card" data-reveal data-reveal-delay="1">
-          <div class="rev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Loa JBL Charge 6 âm thanh cực hay, pin trâu dùng suốt ngày. Giao hàng nhanh, đóng gói cẩn thận."</p>
-          <div class="rev-author">
-            <div class="rev-avatar">P</div>
-            <div>
-              <div class="rev-name">Nguyễn Duy Phước</div>
-              <div class="rev-role">Khách hàng · Trà Vinh</div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-reveal data-reveal-delay="1">
+          <div class="tv-card tv-card-hover h-100 overflow-hidden">
+            <div class="tv-hover-img-zoom" style="height:230px;background:#1A1A22;">
+              <img src="/images/charge6.jpg" alt="JBL Charge 6" class="tv-img-cover" loading="lazy">
+            </div>
+            <div class="p-4">
+              <span class="tv-eyebrow d-inline-block mb-2"
+                style="background:rgba(99,102,241,.1);padding:.2rem .6rem;border-radius:99px;">Âm thanh</span>
+              <h5 class="mb-2">JBL Charge 6</h5>
+              <p class="text-muted-tv small mb-3">Loa Bluetooth chống nước IP67 với âm thanh mạnh mẽ và pin 20 giờ.</p>
+              <div class="d-flex align-items-center justify-content-between">
+                <a href="sanpham.html" class="link-tv fw-semibold small text-decoration-none">
+                  Xem chi tiết <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+                <button class="btn btn-sm btn-tv-outline rounded-circle prod-heart" style="width:36px;height:36px;"
+                  aria-label="Yêu thích">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="rev-card" data-reveal data-reveal-delay="2">
-          <div class="rev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Laptop Lenovo Legion chạy mượt mà, đáp ứng hoàn toàn nhu cầu gaming và làm việc chuyên nghiệp."</p>
-          <div class="rev-author">
-            <div class="rev-avatar">Q</div>
-            <div>
-              <div class="rev-name">Cao Thiên Quí</div>
-              <div class="rev-role">Khách hàng · Bến Tre</div>
+        <div class="col-md-6 col-lg-4" data-reveal data-reveal-delay="2">
+          <div class="tv-card tv-card-hover h-100 overflow-hidden">
+            <div class="tv-hover-img-zoom" style="height:230px;background:#1A1A22;">
+              <img src="/images/legion.jpg" alt="Lenovo Legion" class="tv-img-cover" loading="lazy">
+            </div>
+            <div class="p-4">
+              <span class="tv-eyebrow d-inline-block mb-2"
+                style="background:rgba(99,102,241,.1);padding:.2rem .6rem;border-radius:99px;">Gaming</span>
+              <h5 class="mb-2">Lenovo Legion</h5>
+              <p class="text-muted-tv small mb-3">Laptop gaming hiệu năng cao với RTX, màn hình tần số quét cao.</p>
+              <div class="d-flex align-items-center justify-content-between">
+                <a href="sanpham.html" class="link-tv fw-semibold small text-decoration-none">
+                  Xem chi tiết <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+                <button class="btn btn-sm btn-tv-outline rounded-circle prod-heart" style="width:36px;height:36px;"
+                  aria-label="Yêu thích">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="rev-card" data-reveal data-reveal-delay="3">
-          <div class="rev-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Website đẹp và dễ tìm sản phẩm. Đội hỗ trợ phản hồi rất nhanh, tư vấn tận tình, sản phẩm đa dạng."</p>
-          <div class="rev-author">
-            <div class="rev-avatar">T</div>
-            <div>
-              <div class="rev-name">Nguyễn Minh Toàn</div>
-              <div class="rev-role">Khách hàng · Trà Vinh</div>
+        <div class="col-md-6 col-lg-4" data-reveal data-reveal-delay="3">
+          <div class="tv-card tv-card-hover h-100 overflow-hidden">
+            <div class="tv-hover-img-zoom" style="height:230px;background:#1A1A22;">
+              <img src="/images/iphone17.jpg" alt="iPhone 17" class="tv-img-cover" loading="lazy">
+            </div>
+            <div class="p-4">
+              <span class="tv-eyebrow d-inline-block mb-2"
+                style="background:rgba(99,102,241,.1);padding:.2rem .6rem;border-radius:99px;">Điện thoại</span>
+              <h5 class="mb-2">iPhone 17</h5>
+              <p class="text-muted-tv small mb-3">Trải nghiệm hệ sinh thái Apple hoàn hảo với chip thế hệ mới.</p>
+              <div class="d-flex align-items-center justify-content-between">
+                <a href="sanpham.html" class="link-tv fw-semibold small text-decoration-none">
+                  Xem chi tiết <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+                <button class="btn btn-sm btn-tv-outline rounded-circle prod-heart" style="width:36px;height:36px;"
+                  aria-label="Yêu thích">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -375,68 +236,330 @@
     </div>
   </section>
 
-  <!-- ── NEWSLETTER ── -->
-  <div class="newsletter-section">
-    <div class="inner">
-      <div class="newsletter-card" data-reveal>
-        <h2>Nhận tin công nghệ<br>trước mọi người</h2>
-        <p>Đăng ký email để nhận thông tin sản phẩm mới, ưu đãi độc quyền và xu hướng công nghệ mỗi tuần.</p>
-        <div class="nl-form">
-          <input type="email" placeholder="Nhập địa chỉ email của bạn" />
-          <button>Đăng ký</button>
+  <!-- ════════ WHY US ════════ -->
+  <section class="py-5 py-lg-6 bg-tv-surface border-top border-bottom border-tv">
+    <div class="container py-4">
+      <div class="text-center mx-auto mb-5" style="max-width:600px;" data-reveal>
+        <div class="tv-eyebrow mb-2">Vì sao chọn chúng tôi</div>
+        <h2 class="tv-section-title display-6 mb-3">Tại sao chọn TechVerse?</h2>
+        <p class="text-muted-tv">Chúng tôi mang đến trải nghiệm công nghệ khác biệt, không chỉ là sản phẩm.</p>
+      </div>
+
+      <div class="row g-3 g-lg-4">
+        <div class="col-6 col-lg-3" data-reveal data-reveal-delay="1">
+          <div class="tv-card tv-card-hover p-4 h-100">
+            <div class="feat-num mb-3">01</div>
+            <div class="feat-icon mb-3"><i class="bi bi-cpu"></i></div>
+            <h6 class="mb-2">Công nghệ mới nhất</h6>
+            <p class="text-muted-tv small mb-0">Cập nhật liên tục những xu hướng và thiết bị hiện đại nhất trên thị
+              trường.</p>
+          </div>
         </div>
+        <div class="col-6 col-lg-3" data-reveal data-reveal-delay="2">
+          <div class="tv-card tv-card-hover p-4 h-100">
+            <div class="feat-num mb-3">02</div>
+            <div class="feat-icon mb-3"><i class="bi bi-laptop"></i></div>
+            <h6 class="mb-2">Thiết bị đa dạng</h6>
+            <p class="text-muted-tv small mb-0">Smartphone, laptop và phụ kiện thông minh từ hơn 120 thương hiệu lớn.
+            </p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3" data-reveal data-reveal-delay="3">
+          <div class="tv-card tv-card-hover p-4 h-100">
+            <div class="feat-num mb-3">03</div>
+            <div class="feat-icon mb-3"><i class="bi bi-rocket-takeoff"></i></div>
+            <h6 class="mb-2">Xu hướng tương lai</h6>
+            <p class="text-muted-tv small mb-0">AI, VR/AR và các công nghệ đột phá — luôn đi trước một bước.</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3" data-reveal data-reveal-delay="4">
+          <div class="tv-card tv-card-hover p-4 h-100">
+            <div class="feat-num mb-3">04</div>
+            <div class="feat-icon mb-3"><i class="bi bi-lightbulb"></i></div>
+            <h6 class="mb-2">Dễ tiếp cận</h6>
+            <p class="text-muted-tv small mb-0">Nội dung trực quan, dễ hiểu — phù hợp cho mọi đối tượng người dùng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TRENDING ════════ -->
+  <section class="py-5 py-lg-6">
+    <div class="container py-4">
+      <div class="text-center mx-auto mb-5" style="max-width:600px;" data-reveal>
+        <div class="tv-eyebrow mb-2">Xu hướng</div>
+        <h2 class="tv-section-title display-6 mb-3">Công nghệ đang dẫn đầu</h2>
+        <p class="text-muted-tv">Ba lĩnh vực đang định hình tương lai của ngành công nghệ toàn cầu.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-reveal data-reveal-delay="1">
+          <div class="tv-card tv-card-hover trend-card text-center p-5 h-100">
+            <i class="bi bi-robot trend-icon mb-3"></i>
+            <h5 class="mb-2">Trí tuệ nhân tạo</h5>
+            <p class="text-muted-tv small mb-0">AI đang cách mạng hóa mọi lĩnh vực từ y tế, giáo dục đến sản xuất công
+              nghiệp.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-reveal data-reveal-delay="2">
+          <div class="tv-card tv-card-hover trend-card text-center p-5 h-100">
+            <i class="bi bi-vr trend-icon mb-3"></i>
+            <h5 class="mb-2">VR & AR</h5>
+            <p class="text-muted-tv small mb-0">Thực tế ảo và tăng cường mở ra không gian trải nghiệm hoàn toàn mới cho
+              người dùng.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-reveal data-reveal-delay="3">
+          <div class="tv-card tv-card-hover trend-card text-center p-5 h-100">
+            <i class="bi bi-cpu-fill trend-icon mb-3"></i>
+            <h5 class="mb-2">Chip thế hệ mới</h5>
+            <p class="text-muted-tv small mb-0">Bộ vi xử lý AI tích hợp mang lại hiệu năng vượt trội ngay trên thiết bị
+              cầm tay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ STATS ════════ -->
+  <section class="py-5 py-lg-6 stats-section border-top border-bottom border-tv">
+    <div class="container py-4">
+      <div class="text-center mx-auto mb-5" style="max-width:600px;" data-reveal>
+        <div class="tv-eyebrow mb-2">Thành tựu</div>
+        <h2 class="tv-section-title display-6 mb-3">TechVerse bằng con số</h2>
+        <p class="text-muted-tv">Những con số thể hiện quy mô và độ tin cậy của chúng tôi.</p>
+      </div>
+
+      <div class="row g-0 stats-grid mx-auto" data-reveal>
+        <div class="col-6 col-lg-3 stat-item text-center py-5">
+          <div class="stat-num tv-gradient-text">500+</div>
+          <div class="text-muted-tv">Sản phẩm</div>
+        </div>
+        <div class="col-6 col-lg-3 stat-item text-center py-5">
+          <div class="stat-num tv-gradient-text">50K+</div>
+          <div class="text-muted-tv">Khách hàng</div>
+        </div>
+        <div class="col-6 col-lg-3 stat-item text-center py-5">
+          <div class="stat-num tv-gradient-text">120+</div>
+          <div class="text-muted-tv">Thương hiệu</div>
+        </div>
+        <div class="col-6 col-lg-3 stat-item text-center py-5">
+          <div class="stat-num tv-gradient-text">24/7</div>
+          <div class="text-muted-tv">Hỗ trợ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ NEWS ════════ -->
+  <section class="py-5 py-lg-6">
+    <div class="container py-4">
+      <div class="text-center mx-auto mb-5" style="max-width:600px;" data-reveal>
+        <div class="tv-eyebrow mb-2">Tin tức</div>
+        <h2 class="tv-section-title display-6 mb-3">Công nghệ mới nhất</h2>
+        <p class="text-muted-tv">Cập nhật nhanh những xu hướng và sản phẩm đang làm thay đổi thế giới.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-reveal data-reveal-delay="1">
+          <a href="https://daidoanket.vn/ung-dung-tri-tue-nhan-tao-xu-huong-tat-yeu-trong-giao-duc-viet-nam-10315078.html"
+            class="tv-card tv-card-hover h-100 d-flex flex-column overflow-hidden text-decoration-none" target="_blank"
+            rel="noopener">
+            <div class="tv-hover-img-zoom" style="height:190px;background:#1A1A22;">
+              <img src="https://picsum.photos/seed/ainews1/640/400" alt="AI giáo dục" class="tv-img-cover"
+                loading="lazy">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="tv-eyebrow small mb-2">AI · Giáo dục</div>
+              <h6 class="mb-2">AI đang thay đổi ngành giáo dục Việt Nam</h6>
+              <p class="text-muted-tv small flex-grow-1">Những ứng dụng trí tuệ nhân tạo mới nhất đang được triển khai
+                trong học tập.</p>
+              <span class="link-tv fw-semibold small mt-2">Đọc thêm <i class="bi bi-arrow-right ms-1"></i></span>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-reveal data-reveal-delay="2">
+          <a href="https://tinhte.vn/thread/top-3-laptop-ai-co-npu-len-den-50-tops-dang-mua-nhat-2026.4094497/"
+            class="tv-card tv-card-hover h-100 d-flex flex-column overflow-hidden text-decoration-none" target="_blank"
+            rel="noopener">
+            <div class="tv-hover-img-zoom" style="height:190px;background:#1A1A22;">
+              <img src="https://picsum.photos/seed/ainews2/640/400" alt="Laptop AI" class="tv-img-cover" loading="lazy">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="tv-eyebrow small mb-2">Laptop · AI</div>
+              <h6 class="mb-2">Top Laptop AI thế hệ mới đáng mua nhất 2026</h6>
+              <p class="text-muted-tv small flex-grow-1">NPU tích hợp mang lại hiệu năng vượt trội cho công việc hàng
+                ngày.</p>
+              <span class="link-tv fw-semibold small mt-2">Đọc thêm <i class="bi bi-arrow-right ms-1"></i></span>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-reveal data-reveal-delay="3">
+          <a href="https://www.dienmayxanh.com/kinh-nghiem-hay/tu-van-mua-loa-bluetooth-xx-hang-loa-bluetooth-u-1413005"
+            class="tv-card tv-card-hover h-100 d-flex flex-column overflow-hidden text-decoration-none" target="_blank"
+            rel="noopener">
+            <div class="tv-hover-img-zoom" style="height:190px;background:#1A1A22;">
+              <img src="https://picsum.photos/seed/ainews3/640/400" alt="Loa Bluetooth" class="tv-img-cover"
+                loading="lazy">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="tv-eyebrow small mb-2">Âm thanh · Review</div>
+              <h6 class="mb-2">Loa Bluetooth đa dụng nổi bật nhất hiện nay</h6>
+              <p class="text-muted-tv small flex-grow-1">Hướng dẫn chọn loa Bluetooth phù hợp nhu cầu và ngân sách của
+                bạn.</p>
+              <span class="link-tv fw-semibold small mt-2">Đọc thêm <i class="bi bi-arrow-right ms-1"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TESTIMONIALS ════════ -->
+  <section class="py-5 py-lg-6 bg-tv-surface border-top border-bottom border-tv">
+    <div class="container py-4">
+      <div class="text-center mx-auto mb-5" style="max-width:600px;" data-reveal>
+        <div class="tv-eyebrow mb-2">Đánh giá</div>
+        <h2 class="tv-section-title display-6 mb-3">Khách hàng nói gì?</h2>
+        <p class="text-muted-tv">Hơn 50.000 khách hàng đã tin tưởng TechVerse.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-reveal data-reveal-delay="1">
+          <div class="tv-card tv-card-hover p-4 h-100">
+            <div class="text-warning mb-3"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i
+                class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
+            <p class="small mb-4">Loa JBL Charge 6 âm thanh cực hay, pin trâu dùng suốt ngày. Giao hàng nhanh, đóng gói
+              cẩn thận.</p>
+            <div class="d-flex align-items-center gap-3">
+              <div class="rev-avatar">P</div>
+              <div>
+                <div class="fw-semibold small">Nguyễn Duy Phước</div>
+                <div class="text-muted-tv small">Khách hàng · Trà Vinh</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-reveal data-reveal-delay="2">
+          <div class="tv-card tv-card-hover p-4 h-100">
+            <div class="text-warning mb-3"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i
+                class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
+            <p class="small mb-4">Laptop Lenovo Legion chạy mượt mà, đáp ứng hoàn toàn nhu cầu gaming và làm việc chuyên
+              nghiệp.</p>
+            <div class="d-flex align-items-center gap-3">
+              <div class="rev-avatar">Q</div>
+              <div>
+                <div class="fw-semibold small">Cao Thiên Quí</div>
+                <div class="text-muted-tv small">Khách hàng · Bến Tre</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-reveal data-reveal-delay="3">
+          <div class="tv-card tv-card-hover p-4 h-100">
+            <div class="text-warning mb-3"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i
+                class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
+            <p class="small mb-4">Website đẹp và dễ tìm sản phẩm. Đội hỗ trợ phản hồi rất nhanh, tư vấn tận tình, sản
+              phẩm đa dạng.</p>
+            <div class="d-flex align-items-center gap-3">
+              <div class="rev-avatar">T</div>
+              <div>
+                <div class="fw-semibold small">Nguyễn Minh Toàn</div>
+                <div class="text-muted-tv small">Khách hàng · Trà Vinh</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ NEWSLETTER ════════ -->
+  <section class="py-5 py-lg-6" id="lien-he">
+    <div class="container py-4">
+      <div class="tv-card newsletter-card text-center mx-auto p-4 p-lg-5" data-reveal>
+        <h2 class="tv-section-title mb-3">Nhận tin công nghệ<br>trước mọi người</h2>
+        <p class="text-muted-tv mb-4">Đăng ký email để nhận thông tin sản phẩm mới, ưu đãi độc quyền và xu hướng công
+          nghệ mỗi tuần.</p>
+
+        <form id="newsletterForm" class="d-flex flex-column flex-sm-row gap-2 mx-auto" style="max-width:480px;"
+          novalidate>
+          <input type="email" id="newsletterEmail" class="form-control form-control-lg rounded-pill"
+            placeholder="Nhập địa chỉ email của bạn" required>
+          <button type="submit" class="btn btn-tv-primary btn-lg flex-shrink-0">Đăng ký</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TOAST: đăng ký thành công ════════ -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:1080">
+    <div id="newsletterToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+      <div class="toast-header">
+        <i class="bi bi-rocket-takeoff-fill text-primary me-2"></i>
+        <strong class="me-auto">TechVerse</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Đóng"></button>
+      </div>
+      <div class="toast-body">
+        🎉 <strong>Đăng ký thành công!</strong><br>
+        TechVerse đã ghi nhận email của bạn. Chúng tôi sẽ gửi đến bạn những tin tức công nghệ mới nhất,
+        xu hướng AI, sản phẩm nổi bật và các cập nhật hấp dẫn sớm nhất.<br>
+        Cảm ơn bạn đã đồng hành cùng TechVerse!
       </div>
     </div>
   </div>
 
-  <!-- ── FOOTER ── -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand">TechVerse</div>
-          <p class="footer-brand-desc">Nơi cập nhật những thiết bị công nghệ hiện đại nhất, dành riêng cho bạn.</p>
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="tv-footer pt-5 pt-lg-6 pb-4">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-sm-6">
+          <div class="footer-brand tv-gradient-text mb-3">TechVerse</div>
+          <p class="text-muted-tv small" style="max-width:280px;">Nơi cập nhật những thiết bị công nghệ hiện đại nhất,
+            dành riêng cho bạn.</p>
         </div>
-
-        <div class="footer-col">
-          <h6>Sản phẩm</h6>
-          <ul>
-            <li><a href="#">Laptop</a></li>
-            <li><a href="#">Điện thoại</a></li>
-            <li><a href="#">Âm thanh</a></li>
-            <li><a href="#">Smartwatch</a></li>
+        <div class="col-lg-3 col-sm-6 col-6">
+          <h6 class="mb-3">Sản phẩm</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2">
+            <li><a href="sanpham.html">Laptop</a></li>
+            <li><a href="sanpham.html">Điện thoại</a></li>
+            <li><a href="sanpham.html">Âm thanh</a></li>
+            <li><a href="sanpham.html">Smartwatch</a></li>
           </ul>
         </div>
-
-        <div class="footer-col">
-          <h6>Hỗ trợ</h6>
-          <ul>
-            <li><a href="#">Liên hệ</a></li>
-            <li><a href="#">Bảo hành</a></li>
-            <li><a href="#">FAQ</a></li>
+        <div class="col-lg-2 col-sm-6 col-6">
+          <h6 class="mb-3">Hỗ trợ</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2">
+            <li><a href="#lien-he">Liên hệ</a></li>
           </ul>
         </div>
-
-        <div class="footer-col">
-          <h6>Kết nối</h6>
-          <div class="socials">
-            <a href="https://www.facebook.com/quithien1801z" class="social-btn"><i
-                class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@biihntv5263" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+        <div class="col-lg-3 col-sm-6">
+          <h6 class="mb-3">Kết nối</h6>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/quithien1801z" class="social-btn" aria-label="Facebook"><i
+                class="bi bi-facebook"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@biihntv5263" class="social-btn" aria-label="YouTube"><i
+                class="bi bi-youtube"></i></a>
           </div>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p>© 2026 TechVerse. All Rights Reserved.</p>
-        <p>Được thiết kế bởi: Nguyễn Duy Phước, Cao Thiên Quí, Nguyễn Minh Toàn</p>
+      <div
+        class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 pt-4 border-top border-tv">
+        <p class="text-muted-tv small mb-0">© 2026 TechVerse. All Rights Reserved.</p>
+        <p class="text-muted-tv small mb-0">Được thiết kế bởi: Nguyễn Duy Phước, Cao Thiên Quí, Nguyễn Minh Toàn</p>
       </div>
     </div>
   </footer>
 
-  <script src="/js/trangchu.js"></script>
-
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
