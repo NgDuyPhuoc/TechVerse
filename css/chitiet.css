@@ -1,6 +1,36 @@
 /* ============================================================
    CHITIET.CSS — CSS bổ sung riêng cho techverse-chitiet.html
    ============================================================ */
+.tv-navbar .container {
+  max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Đẩy menu sang phải */
+.tv-navbar .navbar-collapse {
+  justify-content: flex-end;
+}
+
+/* Logo chiếm phần bên trái */
+.tv-navbar .navbar-brand {
+  margin-right: auto;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* Menu sát phải */
+.tv-navbar .navbar-nav {
+  margin-left: auto;
+}
+
+.tv-navbar .navbar-nav {
+  margin-right: 40px;
+}
+
+.tv-navbar .navbar-brand {
+  margin-left: 20px;
+}
 
 .chitiet-hero {
   position: relative;
@@ -74,6 +104,12 @@
 }
 
 @media (min-width: 992px) {
-  .py-lg-6 { padding-top: 6rem !important; padding-bottom: 6rem !important; }
-  .pt-lg-6 { padding-top: 6rem !important; }
+  .py-lg-6 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+
+  .pt-lg-6 {
+    padding-top: 6rem !important;
+  }
 }

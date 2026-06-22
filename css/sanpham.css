@@ -151,39 +151,17 @@
 }
 
 /* ── PRODUCT CARD ── */
-/* ───────── PRODUCT CARD ───────── */
-
 .sp-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  cursor: pointer;
-  transition: all .3s ease;
-}
-
-.sp-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, .35);
 }
 
 .sp-card-img-wrap {
-  height: 220px;
+  height: 190px;
   background: #14141C;
   position: relative;
-  overflow: hidden;
   border-radius: var(--tv-r-md) var(--tv-r-md) 0 0;
-}
-
-.sp-card-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform .35s ease;
-}
-
-.sp-card:hover .sp-card-img-wrap img {
-  transform: scale(1.05);
 }
 
 .sp-card-badge {
@@ -194,10 +172,10 @@
 }
 
 .sp-card-body {
+  padding: 1rem 1rem 1.1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
 }
 
 .sp-card-cat {
@@ -218,63 +196,33 @@
   font-family: var(--tv-font-display);
   font-weight: 700;
   font-size: .97rem;
-  line-height: 1.3;
   color: #fff;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-
-  min-height: 42px;
+  line-height: 1.3;
 }
 
 .sp-card-desc {
   font-size: .8rem;
   color: var(--tv-muted);
   line-height: 1.55;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-
-  min-height: 74px;
-  max-height: 74px;
+  flex: 1;
 }
 
-.sp-rating {
-  margin-top: auto;
-  min-height: 24px;
+.sp-card-price-main {
+  font-family: var(--tv-font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.sp-card-price-old {
+  font-size: .72rem;
+  color: var(--tv-muted);
+  text-decoration: line-through;
 }
 
 .sp-rating .bi-star-fill,
 .sp-rating .bi-star {
   font-size: .68rem;
   color: #FBBF24;
-}
-
-.sp-card-footer {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid var(--tv-border);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.sp-card-price-main {
-  font-family: var(--tv-font-display);
-  font-weight: 800;
-  font-size: 1.15rem;
-}
-
-.sp-card-price-old {
-  display: block;
-  font-size: .72rem;
-  color: var(--tv-muted);
-  text-decoration: line-through;
 }
 
 /* ── EMPTY STATE ── */

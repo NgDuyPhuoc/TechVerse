@@ -51,13 +51,20 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .tv-display {
   font-family: var(--tv-font-display);
   letter-spacing: -.02em;
 }
 
-a { transition: color .2s; }
+a {
+  transition: color .2s;
+}
 
 /* Noise overlay (giữ chất liệu thị giác gốc, rất nhẹ) */
 body::before {
@@ -138,6 +145,38 @@ body::before {
   box-shadow: 0 0 0 3px var(--tv-glow);
 }
 
+/* Logo sát trái */
+.tv-navbar .container {
+  max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Đẩy menu sang phải */
+.tv-navbar .navbar-collapse {
+  justify-content: flex-end;
+}
+
+/* Logo chiếm phần bên trái */
+.tv-navbar .navbar-brand {
+  margin-right: auto;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* Menu sát phải */
+.tv-navbar .navbar-nav {
+  margin-left: auto;
+}
+
+.tv-navbar .navbar-nav {
+  margin-right: 40px;
+}
+
+.tv-navbar .navbar-brand {
+  margin-left: 20px;
+}
+
 @media (max-width: 991.98px) {
   .tv-navbar .navbar-collapse {
     background: rgba(9, 9, 11, .98);
@@ -147,8 +186,15 @@ body::before {
     border-radius: var(--tv-r-md);
     border: 1px solid var(--tv-border);
   }
-  .tv-navbar .nav-link { padding: .75rem 1rem !important; }
-  .tv-navbar .btn-login { margin-top: .5rem; display: inline-block; }
+
+  .tv-navbar .nav-link {
+    padding: .75rem 1rem !important;
+  }
+
+  .tv-navbar .btn-login {
+    margin-top: .5rem;
+    display: inline-block;
+  }
 }
 
 /* ── BUTTONS ── */
@@ -240,9 +286,20 @@ body::before {
   border-radius: 99px;
 }
 
-.tv-badge-new { background: rgba(99, 102, 241, .85); color: #fff; }
-.tv-badge-sale { background: rgba(239, 68, 68, .85); color: #fff; }
-.tv-badge-hot { background: rgba(245, 158, 11, .85); color: #fff; }
+.tv-badge-new {
+  background: rgba(99, 102, 241, .85);
+  color: #fff;
+}
+
+.tv-badge-sale {
+  background: rgba(239, 68, 68, .85);
+  color: #fff;
+}
+
+.tv-badge-hot {
+  background: rgba(245, 158, 11, .85);
+  color: #fff;
+}
 
 /* ── FORM CONTROLS (dark) ── */
 .form-control,
@@ -260,7 +317,10 @@ body::before {
   color: #fff;
 }
 
-.form-control::placeholder { color: var(--tv-muted); opacity: .8; }
+.form-control::placeholder {
+  color: var(--tv-muted);
+  opacity: .8;
+}
 
 .form-check-input {
   background-color: rgba(255, 255, 255, .08);
@@ -296,7 +356,8 @@ body::before {
   border-radius: var(--tv-r-lg);
 }
 
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
   border-color: var(--tv-border);
 }
 
@@ -330,7 +391,9 @@ body::before {
   transition: color .2s;
 }
 
-.tv-footer a:hover { color: #fff; }
+.tv-footer a:hover {
+  color: #fff;
+}
 
 .tv-footer .social-btn {
   width: 38px;
@@ -370,22 +433,44 @@ body::before {
   transform: translateY(0);
 }
 
-[data-reveal-delay="1"] { transition-delay: .08s; }
-[data-reveal-delay="2"] { transition-delay: .16s; }
-[data-reveal-delay="3"] { transition-delay: .24s; }
-[data-reveal-delay="4"] { transition-delay: .32s; }
+[data-reveal-delay="1"] {
+  transition-delay: .08s;
+}
+
+[data-reveal-delay="2"] {
+  transition-delay: .16s;
+}
+
+[data-reveal-delay="3"] {
+  transition-delay: .24s;
+}
+
+[data-reveal-delay="4"] {
+  transition-delay: .32s;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
   }
 }
 
 /* ── UTILS ── */
-.text-muted-tv { color: var(--tv-muted) !important; }
-.bg-tv-surface { background: var(--tv-surface) !important; }
-.border-tv { border-color: var(--tv-border) !important; }
+.text-muted-tv {
+  color: var(--tv-muted) !important;
+}
+
+.bg-tv-surface {
+  background: var(--tv-surface) !important;
+}
+
+.border-tv {
+  border-color: var(--tv-border) !important;
+}
 
 .tv-img-cover {
   width: 100%;
@@ -393,6 +478,14 @@ body::before {
   object-fit: cover;
 }
 
-.tv-hover-img-zoom { overflow: hidden; }
-.tv-hover-img-zoom img { transition: transform .5s var(--tv-ease); }
-.tv-hover-img-zoom:hover img { transform: scale(1.06); }
+.tv-hover-img-zoom {
+  overflow: hidden;
+}
+
+.tv-hover-img-zoom img {
+  transition: transform .5s var(--tv-ease);
+}
+
+.tv-hover-img-zoom:hover img {
+  transform: scale(1.06);
+}

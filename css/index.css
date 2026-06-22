@@ -3,6 +3,37 @@
    Chỉ chứa những gì Bootstrap utility không đáp ứng được:
    hero ambient, badge pulse, stats-grid chia ô bằng border.
    ============================================================ */
+/* Logo sát trái */
+.tv-navbar .container {
+  max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Đẩy menu sang phải */
+.tv-navbar .navbar-collapse {
+  justify-content: flex-end;
+}
+
+/* Logo chiếm phần bên trái */
+.tv-navbar .navbar-brand {
+  margin-right: auto;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* Menu sát phải */
+.tv-navbar .navbar-nav {
+  margin-left: auto;
+}
+
+.tv-navbar .navbar-nav {
+  margin-right: 40px;
+}
+
+.tv-navbar .navbar-brand {
+  margin-left: 20px;
+}
 
 /* ── HERO ── */
 .tv-hero {

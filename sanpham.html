@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+    rel="stylesheet">
+  <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
 
@@ -24,14 +27,15 @@
   <!-- ════════ NAVBAR ════════ -->
   <nav class="navbar navbar-expand-lg fixed-top tv-navbar" data-bs-theme="dark">
     <div class="container">
-      <a class="navbar-brand tv-gradient-text" href="index.html">TechVerse</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#tvNavCollapse" aria-controls="tvNavCollapse"
-        aria-expanded="false" aria-label="Mở menu điều hướng">
+      <a class="navbar-brand tv-gradient-text" href="index.html" style="font-family: Syne;">TechVerse</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tvNavCollapse"
+        aria-controls="tvNavCollapse" aria-expanded="false" aria-label="Mở menu điều hướng">
         <i class="bi bi-list" style="font-size:1.6rem;color:#fff;"></i>
       </button>
+
       <div class="collapse navbar-collapse" id="tvNavCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
           <li class="nav-item">
             <a class="nav-link" data-page="index.html" href="index.html">
               <i class="bi bi-house-door me-1"></i>Trang chủ
@@ -48,18 +52,14 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#lien-he">
+            <a class="nav-link" href="#lien-he">
               <i class="bi bi-envelope me-1"></i>Liên hệ
             </a>
           </li>
         </ul>
-        <a href="dangnhap.html" class="btn btn-login text-white" data-page="dangnhap.html">
-          <i class="bi bi-box-arrow-in-right me-1"></i>Đăng nhập
-        </a>
       </div>
     </div>
   </nav>
-
   <!-- ════════ PAGE HERO ════════ -->
   <header class="sp-hero">
     <div class="tv-orb tv-orb-1"></div>
@@ -88,7 +88,8 @@
 
       <!-- Nút mở bộ lọc trên mobile/tablet -->
       <div class="col-12 d-lg-none">
-        <button class="btn btn-tv-outline w-100" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarFilters" aria-expanded="false" aria-controls="sidebarFilters">
+        <button class="btn btn-tv-outline w-100" type="button" data-bs-toggle="collapse"
+          data-bs-target="#sidebarFilters" aria-expanded="false" aria-controls="sidebarFilters">
           <i class="bi bi-funnel me-2"></i>Bộ lọc &amp; Tìm kiếm
         </button>
       </div>
@@ -103,7 +104,8 @@
               <label class="small text-muted-tv mb-2 d-block">Tìm kiếm</label>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-search"></i></span>
-                <input type="search" id="sidebar-search-input" class="form-control" placeholder="Tên sản phẩm, thương hiệu...">
+                <input type="search" id="sidebar-search-input" class="form-control"
+                  placeholder="Tên sản phẩm, thương hiệu...">
               </div>
             </div>
 
@@ -112,19 +114,23 @@
               <label class="small text-muted-tv mb-2 d-block">Danh mục</label>
               <div class="list-group list-group-flush" id="cat-filter">
                 <button type="button" class="list-group-item list-group-item-action filter-item active" data-cat="all">
-                  <i class="bi bi-grid-3x3-gap me-2"></i>Tất cả <span class="badge rounded-pill ms-auto filter-count">0</span>
+                  <i class="bi bi-grid-3x3-gap me-2"></i>Tất cả <span
+                    class="badge rounded-pill ms-auto filter-count">0</span>
                 </button>
                 <button type="button" class="list-group-item list-group-item-action filter-item" data-cat="laptop">
                   <i class="bi bi-laptop me-2"></i>Laptop <span class="badge rounded-pill ms-auto filter-count">0</span>
                 </button>
                 <button type="button" class="list-group-item list-group-item-action filter-item" data-cat="phone">
-                  <i class="bi bi-phone me-2"></i>Điện thoại <span class="badge rounded-pill ms-auto filter-count">0</span>
+                  <i class="bi bi-phone me-2"></i>Điện thoại <span
+                    class="badge rounded-pill ms-auto filter-count">0</span>
                 </button>
                 <button type="button" class="list-group-item list-group-item-action filter-item" data-cat="audio">
-                  <i class="bi bi-headphones me-2"></i>Âm thanh <span class="badge rounded-pill ms-auto filter-count">0</span>
+                  <i class="bi bi-headphones me-2"></i>Âm thanh <span
+                    class="badge rounded-pill ms-auto filter-count">0</span>
                 </button>
                 <button type="button" class="list-group-item list-group-item-action filter-item" data-cat="watch">
-                  <i class="bi bi-smartwatch me-2"></i>Đồng hồ thông minh <span class="badge rounded-pill ms-auto filter-count">0</span>
+                  <i class="bi bi-smartwatch me-2"></i>Đồng hồ thông minh <span
+                    class="badge rounded-pill ms-auto filter-count">0</span>
                 </button>
                 <button type="button" class="list-group-item list-group-item-action filter-item" data-cat="accessory">
                   <i class="bi bi-plug me-2"></i>Phụ kiện <span class="badge rounded-pill ms-auto filter-count">0</span>
@@ -136,9 +142,11 @@
             <div class="tv-card p-3">
               <label class="small text-muted-tv mb-2 d-block">Khoảng giá</label>
               <div class="d-flex align-items-center gap-2 mb-2">
-                <input type="number" id="price-min-input" class="form-control form-control-sm" placeholder="Tối thiểu" min="0" step="100000">
+                <input type="number" id="price-min-input" class="form-control form-control-sm" placeholder="Tối thiểu"
+                  min="0" step="100000">
                 <span class="text-muted-tv">—</span>
-                <input type="number" id="price-max-input" class="form-control form-control-sm" placeholder="Tối đa" min="0" step="100000">
+                <input type="number" id="price-max-input" class="form-control form-control-sm" placeholder="Tối đa"
+                  min="0" step="100000">
               </div>
               <button class="btn btn-tv-primary btn-sm w-100 mb-3" id="price-apply-btn">
                 <i class="bi bi-funnel me-1"></i>Lọc giá
@@ -195,7 +203,8 @@
           <div class="mt-3 mx-auto" style="max-width:300px;">
             <div class="small text-muted-tv mb-2 progress-label"></div>
             <div class="progress" style="height:4px;background:rgba(255,255,255,.08);">
-              <div class="progress-bar progress-fill" role="progressbar" style="width:0%;background:linear-gradient(90deg,var(--tv-accent),var(--tv-accent2));"></div>
+              <div class="progress-bar progress-fill" role="progressbar"
+                style="width:0%;background:linear-gradient(90deg,var(--tv-accent),var(--tv-accent2));"></div>
             </div>
           </div>
         </div>
@@ -225,7 +234,8 @@
       <div class="row g-4 mb-5">
         <div class="col-lg-4 col-sm-6">
           <div class="footer-brand tv-gradient-text mb-3">TechVerse</div>
-          <p class="text-muted-tv small" style="max-width:280px;">Nơi cập nhật những thiết bị công nghệ hiện đại nhất, dành riêng cho bạn.</p>
+          <p class="text-muted-tv small" style="max-width:280px;">Nơi cập nhật những thiết bị công nghệ hiện đại nhất,
+            dành riêng cho bạn.</p>
         </div>
         <div class="col-lg-3 col-sm-6 col-6">
           <h6 class="mb-3">Sản phẩm</h6>
@@ -245,13 +255,16 @@
         <div class="col-lg-3 col-sm-6">
           <h6 class="mb-3">Kết nối</h6>
           <div class="d-flex gap-2">
-            <a href="https://www.facebook.com/quithien1801z" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.facebook.com/quithien1801z" class="social-btn" aria-label="Facebook"><i
+                class="bi bi-facebook"></i></a>
             <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.youtube.com/@biihntv5263" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.youtube.com/@biihntv5263" class="social-btn" aria-label="YouTube"><i
+                class="bi bi-youtube"></i></a>
           </div>
         </div>
       </div>
-      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 pt-4 border-top border-tv">
+      <div
+        class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 pt-4 border-top border-tv">
         <p class="text-muted-tv small mb-0">© 2026 TechVerse. All Rights Reserved.</p>
         <p class="text-muted-tv small mb-0">Được thiết kế bởi: Nguyễn Duy Phước, Cao Thiên Quí, Nguyễn Minh Toàn</p>
       </div>

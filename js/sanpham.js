@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <div class="sp-card-price-main tv-gradient-text">${formatPrice(p.price)}</div>
                                 ${p.oldPrice ? `<div class="sp-card-price-old">${formatPrice(p.oldPrice)}</div>` : ""}
                             </div>
-                        <i class="bi bi-arrow-right-circle fs-5 text-primary"></i>
+                    <i class="bi bi-arrow-right-circle fs-5 text-primary"></i>
                         </div>
                     </div>
                 </div>
