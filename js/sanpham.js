@@ -137,12 +137,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const badge = badgeLabel(p.badge);
         return `
             <div class="col-12 col-md-6 col-lg-3" data-reveal>
-                <div class="tv-card tv-card-hover sp-card h-100">
+                <div class="tv-card tv-card-hover sp-card h-100 qa-card"
+     data-id="${p.id}">
                     <div class="sp-card-img-wrap tv-hover-img-zoom">
                         ${badge ? `<span class="tv-badge ${badge.cls} sp-card-badge">${badge.text}</span>` : ""}
                         <img src="${p.image}" alt="${escapeHtml(p.name)}" class="tv-img-cover" loading="lazy" style="border-radius:var(--tv-r-md) var(--tv-r-md) 0 0;">
                     </div>
-                    <div class="sp-card-body">
+                    <div class="sp-card-body d-flex flex-column h-100">
                         <div class="d-flex align-items-center justify-content-between mb-1">
                             <span class="sp-card-cat">${CATEGORY_LABEL[p.category] || p.category}</span>
                             <span class="sp-card-brand">${escapeHtml(p.brand)}</span>
@@ -153,14 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${renderStars(p.rating)}
                             <span class="text-muted-tv small ms-1">(${p.reviews})</span>
                         </div>
-                        <div class="d-flex align-items-end justify-content-between mt-auto pt-2 border-top border-tv">
+                        <div class="sp-card-footer d-flex align-items-center justify-content-between pt-3 border-top border-tv">
                             <div>
                                 <div class="sp-card-price-main tv-gradient-text">${formatPrice(p.price)}</div>
                                 ${p.oldPrice ? `<div class="sp-card-price-old">${formatPrice(p.oldPrice)}</div>` : ""}
                             </div>
-                            <button class="btn btn-tv-outline btn-sm qa-detail" data-id="${p.id}">
-                                Xem chi tiết
-                            </button>
+                        <i class="bi bi-arrow-right-circle fs-5 text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -263,8 +262,18 @@ document.addEventListener("DOMContentLoaded", () => {
        8. BIND SỰ KIỆN
     ============================================================ */
     function bindCardEvents() {
+
         document.querySelectorAll(".qa-detail").forEach(btn => {
-            btn.addEventListener("click", () => openProductModal(btn.dataset.id));
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                openProductModal(btn.dataset.id);
+            });
+        });
+
+        document.querySelectorAll(".qa-card").forEach(card => {
+            card.addEventListener("click", () => {
+                openProductModal(card.dataset.id);
+            });
         });
     }
 

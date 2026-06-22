@@ -53,8 +53,17 @@
 }
 
 @keyframes tv-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: .4; transform: scale(.7); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .4;
+    transform: scale(.7);
+  }
 }
 
 .hero-title {
@@ -139,7 +148,9 @@
 .trend-card::after {
   content: '';
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--tv-accent), var(--tv-accent2));
   transform: scaleX(0);
@@ -147,7 +158,9 @@
   transition: transform .3s var(--tv-ease);
 }
 
-.trend-card:hover::after { transform: scaleX(1); }
+.trend-card:hover::after {
+  transform: scaleX(1);
+}
 
 .trend-icon {
   font-size: 2.4rem;
@@ -167,11 +180,12 @@
   border: 1px solid var(--tv-border);
   border-radius: var(--tv-r-lg);
   overflow: hidden;
-  gap: 1px;
 }
 
 .stat-item {
   background: rgba(17, 17, 22, .95);
+  border-right: 1px solid var(--tv-border);
+  border-bottom: 1px solid var(--tv-border);
 }
 
 .stat-num {
@@ -219,6 +233,7 @@
 .link-tv {
   color: var(--tv-accent2);
 }
+
 .link-tv:hover {
   color: var(--tv-accent2);
 }
@@ -233,6 +248,12 @@
 
 /* ── SPACING UTILS NOT IN BOOTSTRAP DEFAULT SCALE ── */
 @media (min-width: 992px) {
-  .py-lg-6 { padding-top: 6rem !important; padding-bottom: 6rem !important; }
-  .pt-lg-6 { padding-top: 6rem !important; }
+  .py-lg-6 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+
+  .pt-lg-6 {
+    padding-top: 6rem !important;
+  }
 }
