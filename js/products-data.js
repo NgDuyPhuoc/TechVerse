@@ -25,7 +25,7 @@ const PRODUCTS = [
     {
         id: 3, name: "Sony WH-1000XM6", brand: "Sony", category: "audio",
         price: 8490000, oldPrice: 9990000, rating: 5, reviews: 58,
-        image: "/images/id3.png", badge: "",
+        image: "/images/id3.jpg", badge: "",
         desc: "Chống ồn chủ động hàng đầu, pin 40 giờ, aptX Lossless.",
         specs: { "Loại": "Over-ear không dây", "Chống ồn": "Chủ động (ANC) thế hệ mới", "Pin": "40 giờ", "Kết nối": "Bluetooth 5.4, aptX Lossless", "Bảo hành": "12 tháng" }
     },
@@ -39,7 +39,7 @@ const PRODUCTS = [
     {
         id: 5, name: "Samsung Galaxy S26 Ultra", brand: "Samsung", category: "phone",
         price: 31990000, oldPrice: 35990000, rating: 5, reviews: 47,
-        image: "/images/id5.webp", badge: "new",
+        image: "/images/id5.jpg", badge: "new",
         desc: "Snapdragon 8 Elite, camera 200MP, S Pen tích hợp AI.",
         specs: { "Màn hình": "6.9\" Dynamic AMOLED 2X", "Chip": "Snapdragon 8 Elite", "RAM": "12GB", "Camera": "200MP + 50MP + 10MP + 12MP", "Pin": "5.500 mAh" }
     },
@@ -88,7 +88,7 @@ const PRODUCTS = [
     {
         id: 12, name: "Anker 747 Charging Station", brand: "Anker", category: "accessory",
         price: 1990000, oldPrice: 2490000, rating: 5, reviews: 54,
-        image: "/images/id12.jpg", badge: "sale",
+        image: "/images/id12.webp", badge: "sale",
         desc: "Sạc nhanh 140W, 4 cổng USB-C + 3 USB-A, GaN III.",
         specs: { "Công suất": "140W tổng", "Cổng": "4x USB-C, 3x USB-A", "Công nghệ": "GaN III", "Bảo hành": "18 tháng" }
     },
@@ -109,21 +109,21 @@ const PRODUCTS = [
     {
         id: 15, name: "Google Pixel 10 Pro", brand: "Google", category: "phone",
         price: 24990000, oldPrice: 27990000, rating: 4, reviews: 25,
-        image: "/images/id15.png", badge: "new",
+        image: "/images/id15.jpg", badge: "new",
         desc: "Tensor G5, camera AI thế hệ mới, màn hình LTPO 120Hz.",
         specs: { "Màn hình": "6.7\" LTPO OLED 120Hz", "Chip": "Google Tensor G5", "RAM": "16GB", "Camera": "50MP + 48MP + 48MP", "Pin": "5.000 mAh" }
     },
     {
         id: 16, name: "Garmin Fenix 8 Sapphire", brand: "Garmin", category: "watch",
         price: 29990000, oldPrice: 32990000, rating: 5, reviews: 46,
-        image: "/images/id16.jpg", badge: "",
+        image: "/images/id16.webp", badge: "",
         desc: "GPS đa băng tần, theo dõi sức khỏe chuyên sâu, pin 29 ngày.",
         specs: { "Mặt kính": "Sapphire chống xước", "GPS": "Đa băng tần (multi-band)", "Pin": "29 ngày (smartwatch mode)", "Chống nước": "10ATM", "Cảm biến": "Nhịp tim, SpO2, độ cao" }
     },
     {
         id: 17, name: "Dell XPS 14", brand: "Dell", category: "laptop",
         price: 48990000, oldPrice: 53990000, rating: 4, reviews: 14,
-        image: "/images/id17.webp", badge: "sale",
+        image: "/images/id17.jpg", badge: "sale",
         desc: "Intel Core Ultra 7, màn hình OLED 3.2K cảm ứng, thiết kế cao cấp.",
         specs: { "CPU": "Intel Core Ultra 7 256V", "RAM": "32GB LPDDR5x", "Màn hình": "14.5\" OLED 3.2K cảm ứng", "SSD": "1TB NVMe", "Trọng lượng": "1.55kg" }
     },
@@ -137,7 +137,7 @@ const PRODUCTS = [
     {
         id: 19, name: "Acer Predator Helios Neo 18", brand: "Acer", category: "laptop",
         price: 54990000, oldPrice: 59990000, rating: 4, reviews: 9,
-        image: "/images/id19.jpg", badge: "sale",
+        image: "/images/id19.webp", badge: "sale",
         desc: "Màn hình 18\" Mini LED, RTX 4070, tản nhiệt 5th Gen AeroBlade.",
         specs: { "CPU": "Intel Core i9-14900HX", "GPU": "RTX 4070 8GB", "RAM": "32GB DDR5", "Màn hình": "18\" Mini LED 165Hz", "SSD": "1TB NVMe" }
     },
@@ -158,14 +158,14 @@ const PRODUCTS = [
     {
         id: 22, name: "Xiaomi Redmi Note 14 Pro", brand: "Xiaomi", category: "phone",
         price: 7990000, oldPrice: 8990000, rating: 4, reviews: 63,
-        image: "/images/id22.jpg", badge: "",
+        image: "/images/id22.png", badge: "",
         desc: "Camera 200MP, sạc nhanh 67W, giá tốt trong phân khúc.",
         specs: { "Màn hình": "6.67\" AMOLED 120Hz", "Chip": "Snapdragon 7s Gen 3", "Camera": "200MP chính", "Sạc": "67W có dây", "Pin": "5.000 mAh" }
     },
     {
         id: 23, name: "Sony Xperia 1 VII", brand: "Sony", category: "phone",
         price: 26990000, oldPrice: 29990000, rating: 4, reviews: 8,
-        image: "/images/id23.jpg", badge: "new",
+        image: "/images/id23.png", badge: "new",
         desc: "Camera Zeiss chuyên nghiệp, màn hình 4K HDR, âm thanh Hi-Res.",
         specs: { "Màn hình": "6.5\" 4K HDR OLED", "Chip": "Snapdragon 8 Elite", "Camera": "Ống kính Zeiss, zoom quang 5x", "Âm thanh": "Hi-Res Audio, jack 3.5mm", "Pin": "5.000 mAh" }
     },
@@ -179,7 +179,7 @@ const PRODUCTS = [
     {
         id: 25, name: "Bose QuietComfort Ultra 2", brand: "Bose", category: "audio",
         price: 9290000, oldPrice: 10990000, rating: 5, reviews: 43,
-        image: "/images/id25.jpg", badge: "hot",
+        image: "/images/id25.webp", badge: "hot",
         desc: "Chống ồn hàng đầu thị trường, âm thanh không gian immersive.",
         specs: { "Loại": "Over-ear không dây", "Chống ồn": "ANC thế hệ mới + chế độ Aware", "Pin": "24 giờ", "Kết nối": "Bluetooth 5.3, multipoint" }
     },
@@ -228,7 +228,7 @@ const PRODUCTS = [
     {
         id: 32, name: "Apple Pencil Pro", brand: "Apple", category: "accessory",
         price: 2990000, oldPrice: 3490000, rating: 5, reviews: 52,
-        image: "/images/id32.png", badge: "new",
+        image: "/images/id32.webp", badge: "new",
         desc: "Cảm ứng lực và xoay, độ trễ siêu thấp, sạc qua nam châm.",
         specs: { "Tương thích": "iPad có chip M-series/A-series mới", "Tính năng": "Squeeze, xoay (Barrel roll)", "Sạc": "Nam châm không dây", "Độ trễ": "Siêu thấp" }
     },
@@ -249,7 +249,7 @@ const PRODUCTS = [
     {
         id: 35, name: "Sony WF-1000XM6", brand: "Sony", category: "audio",
         price: 5990000, oldPrice: 6990000, rating: 5, reviews: 46,
-        image: "/images/id35.jpg", badge: "sale",
+        image: "/images/id35.webp", badge: "sale",
         desc: "Tai nghe true wireless chống ồn hàng đầu, âm thanh Hi-Res LDAC.",
         specs: { "Loại": "True Wireless In-ear", "Chống ồn": "ANC kép tích hợp AI", "Pin": "8 giờ (24 giờ kèm hộp)", "Kết nối": "Bluetooth 5.4, LDAC" }
     }
