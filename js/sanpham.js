@@ -5,6 +5,8 @@
    Card sản phẩm chỉ còn: ảnh, tên, giá, mô tả ngắn, nút "Xem chi tiết".
    Layout: Bootstrap Grid — col-12 / col-md-6 / col-lg-3
    (tự nhiên cho ra 1 / 2 / 4 sản phẩm mỗi hàng).
+   Sort: dropdown tự build (Bootstrap .dropdown), không dùng <select>
+   để tránh popup option theo theme hệ điều hành (không style được).
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -355,12 +357,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* ── Sort ── */
+    /* ── Sort (dropdown tự build, không dùng <select>) ── */
     function bindSort() {
-        const select = document.querySelector(".sort-select");
-        select?.addEventListener("change", () => {
-            state.sort = select.value;
-            renderAll();
+        const trigger = document.querySelector(".sort-select");
+        const label = document.querySelector(".sort-select-label");
+        const items = document.querySelectorAll(".sort-dropdown-menu .dropdown-item");
+
+        items.forEach(item => {
+            item.addEventListener("click", () => {
+                items.forEach(i => i.classList.remove("active"));
+                item.classList.add("active");
+
+                state.sort = item.dataset.value;
+                if (trigger) trigger.dataset.value = item.dataset.value;
+                if (label) label.textContent = item.textContent.trim();
+
+                renderAll();
+            });
+        });
+    }
+
+    function setSortUi(value) {
+        const trigger = document.querySelector(".sort-select");
+        const label = document.querySelector(".sort-select-label");
+        const items = document.querySelectorAll(".sort-dropdown-menu .dropdown-item");
+
+        items.forEach(item => {
+            const isMatch = item.dataset.value === value;
+            item.classList.toggle("active", isMatch);
+            if (isMatch) {
+                if (trigger) trigger.dataset.value = value;
+                if (label) label.textContent = item.textContent.trim();
+            }
         });
     }
 
@@ -388,8 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const searchInput = document.getElementById("sidebar-search-input");
         if (searchInput) searchInput.value = "";
 
-        const sortSelect = document.querySelector(".sort-select");
-        if (sortSelect) sortSelect.value = "default";
+        setSortUi("default");
 
         renderAll();
     }
@@ -466,6 +493,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function bindProductModalClose() {
+        const modalEl = document.getElementById("productModal");
+        const closeBtn = modalEl?.querySelector(".modal-header .btn-close");
+        if (!modalEl || !closeBtn || !window.bootstrap) return;
+
+        closeBtn.addEventListener("click", () => {
+            bootstrap.Modal.getOrCreateInstance(modalEl).hide();
+        });
+    }
+
     /* ============================================================
        KHỞI CHẠY
     ============================================================ */
@@ -478,6 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bindSort();
         bindResetButton();
         bindLoadMore();
+        bindProductModalClose();
         renderAll();
     }
 
